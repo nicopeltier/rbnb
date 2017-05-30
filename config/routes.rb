@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   resources :flats, only: [:create, :new, :index, :show, :edit, :update] do
     resources :bookings, only: [:create, :new, :index]
     resources :reviews, only: [:create, :new, :index]
-  end
+    end
 
   resources :users, only: :show
   resources :bookings, only: [:index]
+  get 'search', to: 'flatsearch#index', as: 'flatsearch'
+
 
 end
-
-
