@@ -1,0 +1,8 @@
+<ul>
+<% @flats.each do |f| %>
+ <%= render 'flat', f:f %>
+<% end %>
+</ul>
+
+
+<%= link_to "Add a flat", new_flat_path %>
