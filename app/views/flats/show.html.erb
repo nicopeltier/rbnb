@@ -1,0 +1,13 @@
+<%= @flat.short_description %>
+<%= @flat.description %>
+<%= @flat.room_count %>
+<%= @flat.property_type %>
+<%= @flat.price %>
+<%= @flat.country %>
+<%= @flat.city %>
+<%= @flat.street %>
+<%= @flat.zipcode %>
+
+<% if @flat.user == current_user %>
+  <%= link_to "Edit", edit_flat_path %>
+<% end %>
