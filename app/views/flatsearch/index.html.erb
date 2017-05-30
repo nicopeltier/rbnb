@@ -1,5 +1,5 @@
  <br>
 <% @flats.each do |flat| %>
 
-<%= flat.short_description %><br>
+<%= link_to flat.short_description, flat_path(flat) %><br>
 <% end %>
