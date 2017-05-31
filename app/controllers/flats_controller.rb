@@ -30,7 +30,7 @@ class FlatsController < ApplicationController
       @flat = Flat.new(flat_params)
       @flat.user = current_user
       @flat.save!
-      redirect_to flats_path
+      redirect_to my_properties_path
     else
       redirect_to user_session_path
     end
