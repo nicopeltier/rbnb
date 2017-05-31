@@ -32,15 +32,19 @@ def decline_status
 end
 
 def create
-  @flat = Flat.find(params[:flat_id])
-  @booking = Booking.new(booking_params)
-  @booking.flat = @flat
-  @booking.user = current_user
-  @booking.status = "Pending"
-  if @booking.save
-    redirect_to bookings_path
+  if user_signed_in?
+    @flat = Flat.find(params[:flat_id])
+    @booking = Booking.new(booking_params)
+    @booking.flat = @flat
+    @booking.user = current_user
+    @booking.status = "Pending"
+    if @booking.save
+      redirect_to bookings_path
+    else
+      render "flats/show"
+    end
   else
-    render "flats/show"
+    redirect_to user_session_path
   end
 end
 
