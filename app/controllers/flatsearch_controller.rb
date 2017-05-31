@@ -1,8 +1,12 @@
 class FlatsearchController < ApplicationController
 
 def index
-  @flats = Flat.all
+
+  @flats = Flat.where("country = ? AND city = ?", params[:search][:country], params[:search][:city])
+
+
 end
+
 
   # def flat
   #    @restaurant = Restaurant.find(params[:id])

@@ -10,4 +10,6 @@ class Flat < ApplicationRecord
   validates :city, presence: true
   validates :street, presence: true
   validates :zipcode, presence: true
+
+
 end

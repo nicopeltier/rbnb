@@ -2,17 +2,16 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 
-
-
+<div class="container">
 <%= simple_form_for :search,  url: flatsearch_path , :method => :get do |f| %>-
 
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
   <%= f.input :city %>
   <%= f.input :country %>
   <%= f.submit "Search" %>
 <% end %>
-
+</div>
 
 
 <% if user_signed_in? %>
