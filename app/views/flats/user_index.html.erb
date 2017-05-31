@@ -1,8 +1,24 @@
 <ul>
-<% @flats.each do |f| %>
- <%= render 'flat', f:f %>
-<% end %>
+  <% @flats.each do |f| %>
+    <li>
+      <h3><%= link_to f.short_description, flat_path(f) %></h3>
+      <p>Price per night : <%= f.price %></p>
+    </li>
+    <li>
+      <ul>
+        <% f.bookings.each do |b| %>
+          <li>
+          <%= b.start_date %> - <%= b.end_date %> - <%= b.status%> - <%= b.user.last_name %> - <%= b.flat.short_description %> -
+          <%= link_to "Confirm", flat_booking_confirm_path(f,b), method: :patch %>
+          <%= link_to "Decline", flat_booking_decline_path(f,b), method: :patch %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
 </ul>
 
 
+
 <%= link_to "Add a flat", new_flat_path %>
+

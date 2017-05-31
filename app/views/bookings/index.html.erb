@@ -3,8 +3,10 @@
 
 
  <br>
+<ul>
 <% @bookings.each do |booking| %>
 
-<%= booking.id %> - <%= booking.start_date %> - <%= booking.end_date %> - <%= booking.status%> - <%= booking.user_id %>  - <%= booking.user.last_name %> - <%= booking.flat_id %> - <%= booking.flat.short_description %>
-
-<% end %>
+  <li><%= booking.start_date %> - <%= booking.end_date %> - <%= booking.status%> - <%= booking.user.last_name %> - <%= booking.flat.short_description %>
+  </li>
+  <% end %>
+</ul>
