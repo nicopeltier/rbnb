@@ -2,21 +2,15 @@
 <% @bookings.each do |booking| %>
 
 <div class="product">
-  <div class='product-upvote'>
-    <div class="product-arrow"></div>
-    <div class='product-count'>95</div>
-  </div>
+
+
   <div class='product-body'>
     <h3><%= booking.flat.short_description %></h3>
     <p>From : <%= booking.start_date %></p>
     <p>To : <%= booking.end_date %> </p>
     <p>Booking status : <%= booking.status%> at <%= booking.user.last_name %></p>
   </div>
-  <ul class="list-inline product-controls hidden-sm hidden-xs">
-    <li><a href=""><i class="fa fa-heart"></i></a></li>
-    <li><a href=""><i class="fa fa-share"></i></a></li>
-    <li><a href=""><i class="fa fa-star"></i></a></li>
-  </ul>
+
 </div>
   <% end %>
 
