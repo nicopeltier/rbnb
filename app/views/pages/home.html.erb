@@ -5,22 +5,19 @@
 
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('background.jpg');">
   <div class="banner-content">
-    <h1>Some Stuff</h1>
-    <p>Very cool stuff, useful and smart</p>
-  <P>  <%= simple_form_for :search,  url: flatsearch_path , :method => :get do |f| %>-
-
-  <%= f.input :start_date, as: :date %>
-  <%= f.input :end_date, as: :date %>
-  <%= f.input :city %>
-  <%= f.input :country %>
-  <%= f.submit "Search", :class => "btn btn-primary btn-lg"%>
-  </P>
-<% end %>
+    <h1>Find a place to stay ...</h1>
+    <p>Very cool places anywhere on earth</p>
+      <P>  <%= simple_form_for :search,  url: flatsearch_path , :method => :get do |f| %>-
+      <%= f.input :start_date, as: :date %>
+      <%= f.input :end_date, as: :date %>
+      <%= f.input :city %>
+      <%= f.input :country %>
+      <%= f.submit "Search", :class => "btn btn-primary btn-lg"%>
+      </P>
+    <% end %>
 
   </div>
 </div>
-
-
 
 
 </div>
