@@ -61,6 +61,42 @@ flat_seed = [
   city: "Brussels",
   street: "some street 2",
   zipcode: "1008"
+  },
+    {
+  description: "Thats a new long description",
+  short_description: "Nice studio in the center",
+  user_id: 2,
+  room_count: 1,
+  property_type: "Studio",
+  price: 40,
+  country: "BE",
+  city: "Brussels",
+  street: "some street 2",
+  zipcode: "1008"
+  },
+    {
+  description: "Thats a long description",
+  short_description: "Nice and calm studio in paris",
+  user_id: 2,
+  room_count: 1,
+  property_type: "Studio",
+  price: 40,
+  country: "FR",
+  city: "Paris",
+  street: "some street 2",
+  zipcode: "1008"
+  },
+    {
+  description: "Thats a long description",
+  short_description: "Nice studio in Marseille",
+  user_id: 2,
+  room_count: 1,
+  property_type: "Studio",
+  price: 40,
+  country: "FR",
+  city: "Marseille",
+  street: "some street 2",
+  zipcode: "1008"
   }
 ]
 
