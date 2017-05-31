@@ -3,6 +3,7 @@
     <li>
       <h3><%= link_to f.short_description, flat_path(f) %></h3>
       <p>Price per night : <%= f.price %></p>
+      <p><%= link_to "Edit", edit_flat_path(f) %></p>
     </li>
     <li>
       <ul>
