@@ -1,23 +1,31 @@
-<ul>
-  <% @flats.each do |f| %>
-    <li>
+
+
+<div class="container">
+  <div class="row content">
+
+    <% @flats.each do |f| %>
+    <div class="card">
       <h3><%= link_to f.short_description, flat_path(f) %></h3>
       <p>Price per night : <%= f.price %></p>
-      <p><%= link_to "Edit", edit_flat_path(f) %></p>
-    </li>
-    <li>
-      <ul>
-        <% f.bookings.each do |b| %>
-          <li>
-          <%= b.start_date %> - <%= b.end_date %> - <%= b.status%> - <%= b.user.last_name %> - <%= b.flat.short_description %> -
-          <%= link_to "Confirm", flat_booking_confirm_path(f,b), method: :patch %>
-          <%= link_to "Decline", flat_booking_decline_path(f,b), method: :patch %>
-          </li>
-        <% end %>
-      </ul>
-    </li>
-  <% end %>
-</ul>
+    </div>
+    <div>
+    <p><%= link_to "Edit", edit_flat_path(f) %></p>
+
+
+    <ul>
+      <% f.bookings.each do |b| %>
+      <li>
+        <%= b.start_date %> - <%= b.end_date %> - <%= b.status%> - <%= b.user.last_name %> - <%= b.flat.short_description %> -
+        <%= link_to "Confirm", flat_booking_confirm_path(f,b), method: :patch %>
+        <%= link_to "Decline", flat_booking_decline_path(f,b), method: :patch %>
+      </li>
+      <% end %>
+    </ul>
+    </div>
+    <% end %>
+  </div>
+
+</div>
 
 
 
