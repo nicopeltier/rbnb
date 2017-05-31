@@ -1,19 +1,52 @@
-<%= @flat.short_description %>
-<%= @flat.description %>
-<%= @flat.room_count %>
-<%= @flat.property_type %>
-<%= @flat.price %>
-<%= @flat.country %>
-<%= @flat.city %>
-<%= @flat.street %>
-<%= @flat.zipcode %>
+<div class="media">
+  <div class="media-body">
+    <div class="media-section">
+      <h2>Pictures</h2>
+
+    </div>
+    <div class="media-section">
+      <h2>Description</h2>
+      <br>
+      <%= @flat.short_description %><br>
+      <%= @flat.description %><br>
+      <%= @flat.room_count %><br>
+      <%= @flat.property_type %><br>
+      <%= @flat.price %><br>
+      <%= @flat.country %><br>
+      <%= @flat.city %><br>
+      <%= @flat.street %><br>
+      <%= @flat.zipcode %><br>
 
 
-<p>Book a place</p>
-<% if @flat.user != current_user %>
-  <%= simple_form_for [@flat, @booking] do |b| %>
-    <%= b.input :start_date %>
-    <%= b.input :end_date %>
-    <%= b.submit %>
-  <% end %>
+      <% if @flat.user != current_user %>
+
+
+        <%= simple_form_for [@flat, @booking] do |b| %>
+        <%= b.input :start_date %>
+        <%= b.input :end_date %>
+       <p>Book this place</p>
+        <%= b.submit %>
+
+      <% end %>
+
+    </div>
+  </div>
+  <div class="media-aside">
+    <div class="media-section">
+      <h2>Share</h2>
+
+    </div>
+    <div class="media-section">
+      <h2>Reviews to come ... </h2>
+      ...
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 <% end %>
