@@ -11,3 +11,13 @@
 <% if @flat.user == current_user %>
   <%= link_to "Edit", edit_flat_path %>
 <% end %>
+
+
+
+Book a place
+
+<%= simple_form_for [@flat, @booking] do |b| %>
+  <%= b.input :start_date %>
+  <%= b.input :end_date %>
+  <%= b.submit %>
+<% end %>

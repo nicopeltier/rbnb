@@ -2,9 +2,53 @@ class BookingsController < ApplicationController
 
 
 def index
-  @bookings = Booking.all
+  if user_signed_in?
+    @bookings = current_user.bookings
+  else
+    redirect_to user_session_path
+  end
 end
 
+def confirm_status
+  @booking = Booking.find(params[:booking_id])
+  @booking.update(status: "Confimred")
+  if @booking.save
+    redirect_to my_properties_path
+  else
+    flash[:alert] = "Could not confirm"
+    render my_properties_path
+  end
+end
+
+def decline_status
+  @booking = Booking.find(params[:booking_id])
+  @booking.update(status: "Declined")
+  if @booking.save
+    redirect_to my_properties_path
+  else
+    flash[:alert] = "Could not confirm"
+    render my_properties_path
+  end
+end
+
+def create
+  @flat = Flat.find(params[:flat_id])
+  @booking = Booking.new(booking_params)
+  @booking.flat = @flat
+  @booking.user = current_user
+  @booking.status = "Pending"
+  if @booking.save
+    redirect_to bookings_path
+  else
+    render "flats/show"
+  end
+end
+
+private
+
+def booking_params
+  params.require(:booking).permit(:start_date, :end_date)
+end
 
 
 end
