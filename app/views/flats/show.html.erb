@@ -21,24 +21,27 @@
       <% if @flat.user != current_user %>
 
 
-        <%= simple_form_for [@flat, @booking] do |b| %>
-        <%= b.input :start_date %>
-        <%= b.input :end_date %>
-       <p>Book this place</p>
-        <%= b.submit %>
-
+      <%= simple_form_for [@flat, @booking] do |b| %>
+      <%= b.input :start_date %>
+      <%= b.input :end_date %>
+      <p>Book this place</p>
+      <%= b.submit %>
       <% end %>
-
     </div>
   </div>
   <div class="media-aside">
     <div class="media-section">
-      <h2>Share</h2>
-
+      <h3>Reviews</h3>
     </div>
     <div class="media-section">
-      <h2>Reviews to come ... </h2>
-      ...
+      <p><%= link_to "add a review", new_flat_review_path(@flat) %></p>
+      <p>
+        <% @reviews.each do |review| %>
+        rating : <%= review.rating %>,
+        from : <%= link_to User.find(review.user_id).first_name, user_path(review.user_id) %>
+        <%= review.content %><br>
+        <% end %>
+
     </div>
   </div>
 </div>
