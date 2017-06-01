@@ -1,61 +1,72 @@
-<div class="media">
-  <div class="media-body">
-    <div class="media-section">
-      <h2>Pictures</h2>
-      <div class="card-show">
-      <% if @flat.picture.url %>
-        <%= image_tag @flat.picture.url(:show) %>
-      <% else %>
-        no picture
-      <% end %>
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-6">
+
+      <div class="media-body">
+        <h2 class="media-heading"><%= @flat.short_description %></h2>
+        <br>
+        <%= @flat.description %><br>
+        <%= @flat.room_count %><br>
+        <%= @flat.property_type %><br>
+        <%= @flat.price %><br>
+        <%= @flat.country %><br>
+        <%= @flat.city %><br>
+        <%= @flat.street %><br>
+        <%= @flat.zipcode %><br>
+        <% if @flat.user != current_user %>
+        <%= simple_form_for [@flat, @booking] do |b| %>
+        <%= b.input :start_date %>
+        <%= b.input :end_date %>
+        <p>Book this place</p>
+        <%= b.submit %>
+        <% end %>
+        <% end %>
       </div>
     </div>
-    <div class="media-section">
-      <h2>Description</h2>
-      <br>
-      <%= @flat.short_description %><br>
-      <%= @flat.description %><br>
-      <%= @flat.room_count %><br>
-      <%= @flat.property_type %><br>
-      <%= @flat.price %><br>
-      <%= @flat.country %><br>
-      <%= @flat.city %><br>
-      <%= @flat.street %><br>
-      <%= @flat.zipcode %><br>
+    <div class="col-xs-12 col-sm-6">
+
+      <div class="media-right">
+        <% if @flat.picture.url %>
+        <%= image_tag @flat.picture.url(:show)  %>
+        <% else %>
+        no picture
+        <% end %>
+      </div>
+
+    </div></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6" >
+     <div class="media-body text-justify">
+       <h4>Reviews</h4>
+
+       <%= link_to "add a review", new_flat_review_path(@flat), class: "btn-medium" %>
 
 
-      <% if @flat.user != current_user %>
+       <% @reviews.each do |review| %>
 
+       <div class="panel panel-info">
+        <div class="panel-heading">
+         <h3 class="panel-title">
+          <% review.rating.times do  %>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <% end %>
+          by <%= link_to User.find(review.user_id).first_name, user_path(review.user_id) %></h3>
 
-      <%= simple_form_for [@flat, @booking] do |b| %>
-      <%= b.input :start_date %>
-      <%= b.input :end_date %>
-      <p>Book this place</p>
-      <%= b.submit %>
+        </div>
+        <div class="panel-body">
+          <%= review.content %>
+        </div>
+
+      </div>
       <% end %>
     </div>
-  </div>
-  <div class="media-aside">
-    <div class="media-section">
-      <h3>Reviews</h3>
-    </div>
-    <div class="media-section">
-      <p><%= link_to "add a review", new_flat_review_path(@flat) %></p>
-      <p>
-        <% @reviews.each do |review| %>
-        rating : <%= review.rating %>,
-        from : <%= link_to User.find(review.user_id).first_name, user_path(review.user_id) %>
-        <%= review.content %><br>
-        <% end %>
 
-    </div>
+
   </div>
+
 </div>
 
+</div>
 
-
-
-
-
-
-<% end %>
