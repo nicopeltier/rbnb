@@ -24,8 +24,8 @@
         <% f.bookings.each do |b| %>
           <div>
             <span>From: <%= b.user.last_name %></span> | <span>Dates: <%= b.start_date %> - <%= b.end_date %></span>
-            <span><%= link_to "Decline", flat_booking_decline_path(f,b), class:"btn-treehouse-red pull-right", method: :patch %></span>
-            <span><%= link_to "Confirm", flat_booking_confirm_path(f,b), class:"btn-treehouse pull-right", method: :patch %>
+            <span><%= link_to "Decline", flat_booking_decline_path(f,b), class:"btn-medium-red pull-right", method: :patch %></span>
+            <span><%= link_to "Confirm", flat_booking_confirm_path(f,b), class:"btn-medium-green pull-right", method: :patch %>
             </span>
 
             <div>

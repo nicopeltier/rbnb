@@ -8,6 +8,28 @@
   border-radius: 5px;
 }
 
+.card a {
+  color: #b2b2b2;
+  text-decoration: none;
+  &:hover {
+        color: #d4d4d4;
+    }
+}
+.card-small a {
+  color: #b2b2b2;
+  text-decoration: none;
+  &:hover {
+        color: #d4d4d4;
+    }
+}
+.card-show a {
+  color: #b2b2b2;
+  text-decoration: none;
+  &:hover {
+        color: #d4d4d4;
+    }
+}
+
 .card h3 {
   position: absolute;
   top: 260px;
