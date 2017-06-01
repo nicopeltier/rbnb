@@ -11,17 +11,62 @@
   text-decoration: none;
   color: #999999;
 }
+
+.btn-medium-red {
+  color: #D23333;
+  border: 1px solid #D23333;
+  padding: 5px 5px;
+  border-radius: 30px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: background-color 0.4s;
+}
+.btn-medium-red:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+  background-color: #D23333;
+}
+
+.btn-medium-green {
+  color: #6AD58B;
+  border: 1px solid #6AD58B;
+  padding: 5px 5px;
+  border-radius: 30px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-right: 5px;
+  transition: background-color 0.4s;
+}
+.btn-medium-green:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+  background-color: #6AD58B;
+}
+
+
+
 .btn-treehouse {
   color: white;
-  padding: 10px 15px;
+  padding: 5px 10px;
   border-radius: 4px;
   font-weight: bold;
+  display: inline-block;
   background: #6AD58B;
   transition: background 0.3s ease;
+  margin-right: 5px;
 }
+
 .btn-treehouse:hover {
   opacity: 1;
   background: #3ac162;
   text-decoration: none;
   color: white;
 }
+
+.add-apartment {
+  margin-bottom: 7px;
+  margin-top: 11px;
+}
+

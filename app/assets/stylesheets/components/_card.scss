@@ -3,8 +3,31 @@
   height: 350px;
   width: 650px;
   box-shadow: 1px 1px 4px 0px rgba(230,230,230,1);
-  background-color: #f7f7f7;
+  background-color: white;
   position: relative;
+  border-radius: 5px;
+}
+
+.card a {
+  color: #b2b2b2;
+  text-decoration: none;
+  &:hover {
+        color: #d4d4d4;
+    }
+}
+.card-small a {
+  color: #b2b2b2;
+  text-decoration: none;
+  &:hover {
+        color: #d4d4d4;
+    }
+}
+.card-show a {
+  color: #b2b2b2;
+  text-decoration: none;
+  &:hover {
+        color: #d4d4d4;
+    }
 }
 
 .card h3 {
@@ -25,13 +48,14 @@
   height: 250px;
   width: 450px;
   box-shadow: 1px 1px 4px 0px rgba(230,230,230,1);
-  background-color: #f7f7f7;
+  background-color: white;
   position: relative;
+  border-radius: 5px;
 }
 
 .card-small img {
   position: absolute;
-  bottom: 50px;
+  bottom: 49.8px;
 }
 
 .card-small h3 {
@@ -51,7 +75,8 @@
   height: 350px;
   width: 650px;
   box-shadow: 1px 1px 4px 0px rgba(230,230,230,1);
-  background-color: #f7f7f7;
+  background-color: white;
   position: relative;
+  border-radius: 5px;
 }
 

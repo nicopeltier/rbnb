@@ -1,38 +1,47 @@
 
 
 <div class="container">
-
-    <% @flats.each do |f| %>
-  <div class="row content">
-    <div class="card-small">
-      <h3><%= link_to f.short_description, flat_path(f) %></h3>
-      <p>Price per night : <%= f.price %></p>
-      <% if f.picture.url %>
-        <%= image_tag f.picture.url(:standard) %>
-      <% else %>
-        no picture
+<div class="add-apartment"><%= link_to "Add a new Apartment", new_flat_path, class:"btn btn-medium" %></div>
+<hr>
+  <% @flats.each do |f| %>
+    <p><%= link_to "Edit Your Apartment", edit_flat_path(f), class:"btn btn-medium" %></p>
+    <%= link_to flat_path(f) do %>
+      <div class="row content">
+        <div class="card-small">
+          <h3><%= link_to f.short_description, flat_path(f) %></h3>
+          <p>Price per night : <%= f.price %></p>
+          <% if f.picture.url %>
+            <%= image_tag f.picture.url(:standard) %>
+          <% else %>
+            no picture
+          <% end %>
+      </div>
       <% end %>
-    </div>
-    <div>
-    <p><%= link_to "Edit", edit_flat_path(f) %></p>
+    <div class="padded-top">
 
+      <h3 class="text-center">Booking Requests</h3>
+      <div class="booking">
+        <% f.bookings.each do |b| %>
+          <div>
+            <span>From: <%= b.user.last_name %></span> | <span>Dates: <%= b.start_date %> - <%= b.end_date %></span>
+            <span><%= link_to "Decline", flat_booking_decline_path(f,b), class:"btn-medium-red pull-right", method: :patch %></span>
+            <span><%= link_to "Confirm", flat_booking_confirm_path(f,b), class:"btn-medium-green pull-right", method: :patch %>
+            </span>
 
+            <div>
+              Status: <%= b.status%>
+            </div>
 
-      <% f.bookings.each do |b| %>
-        <div>
-        <%= b.start_date %> - <%= b.end_date %> - <%= b.status%> - <%= b.user.last_name %> - <%= b.flat.short_description %> -
-        <%= link_to "Confirm", flat_booking_confirm_path(f,b), method: :patch %>
-        <%= link_to "Decline", flat_booking_decline_path(f,b), method: :patch %>
-          </div>
-      <% end %>
-
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
+  <hr>
     <% end %>
 
 </div>
 
 
 
-<%= link_to "Add a flat", new_flat_path %>
 
