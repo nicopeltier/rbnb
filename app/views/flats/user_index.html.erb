@@ -7,6 +7,11 @@
     <div class="card-small">
       <h3><%= link_to f.short_description, flat_path(f) %></h3>
       <p>Price per night : <%= f.price %></p>
+      <% if f.picture.url %>
+        <%= image_tag f.picture.url(:standard) %>
+      <% else %>
+        no picture
+      <% end %>
     </div>
     <div>
     <p><%= link_to "Edit", edit_flat_path(f) %></p>

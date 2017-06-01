@@ -9,13 +9,13 @@
 
 .card h3 {
   position: absolute;
-  top: 10px;
+  top: 260px;
   left: 10px;
 }
 
 .card p {
   position: absolute;
-  top: 30px;
+  top: 285px;
   right: 10px;
 }
 
@@ -29,4 +29,19 @@
   position: relative;
 }
 
+.card-small img {
+  position: absolute;
+  bottom: 50px;
+}
 
+.card-small h3 {
+  position: absolute;
+  top: 180px;
+  left: 10px;
+}
+
+.card-small p {
+  position: absolute;
+  top: 200px;
+  right: 10px;
+}

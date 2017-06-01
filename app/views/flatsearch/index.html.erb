@@ -3,10 +3,18 @@
  <% @flats.each do |flat| %>
 
  <div class="card">
+   <div>
+    <% if flat.picture.url %>
+      <%= image_tag flat.picture.url(:big) %>
+    <% else %>
+      no picture
+    <% end %>
+  </div>
 
-
-  <h3><%= link_to flat.short_description, flat_path(flat) %></h3>
-
-  <p>Price per night : <%= flat.price %></p>
+  <div>
+    <h4><%= link_to flat.short_description, flat_path(flat) %></h4>
+    <p>Price per night : <%= flat.price %></p>
+  </div>
 </div>
 <% end %>
+
