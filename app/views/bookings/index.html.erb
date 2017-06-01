@@ -5,7 +5,8 @@
 
 
   <div class='product-body'>
-    <h3><%= booking.flat.short_description %></h3>
+    <h3>
+          <h3><%= link_to booking.flat.short_description, flat_path(booking.flat_id) %></h3>
     <p>From : <%= booking.start_date %></p>
     <p>To : <%= booking.end_date %> </p>
     <p>Booking status : <%= booking.status%> at <%= booking.user.last_name %></p>

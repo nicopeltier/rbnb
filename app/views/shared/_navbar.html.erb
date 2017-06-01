@@ -1,0 +1,26 @@
+<div class="navbar-wagon">
+
+  <a href="/" class="navbar-wagon-brand">
+    <img src="http://www.onlinelogomaker.io/wp-content/uploads/2015/08/logo-300x169.png" />
+
+
+  </a>
+
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <%= link_to "My Properties", my_properties_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "My Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link"  %>
+    <%= link_to "Search", root_path, method: :get, class: "navbar-wagon-item navbar-wagon-link"  %>
+
+    <!-- Notification link-->
+
+    <!-- Button (call-to-action) -->
+
+    <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <% else %>
+    <%= link_to "Sign in", new_user_session_path, method: :get, class: "navbar-wagon-item navbar-wagon-button btn"  %>
+    <% end %>
+  </div>
+  <!-- Dropdown appearing on mobile only -->
+</div>
