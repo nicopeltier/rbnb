@@ -1,5 +1,8 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
 <%= simple_form_for @flat do |f| %>
-  <%= f.input :short_description %>
+  <%= f.input :short_description, inline_label: "short" %>
   <%= f.input :description %>
   <%= f.input :room_count %>
   <%= f.input :property_type, collection: ["House", "Flat", "Studio"], prompt: "Select a property type" %>
@@ -12,3 +15,6 @@
   <%= f.input :picture_cache, as: :hidden %>
   <%= f.submit %>
 <% end %>
+</div>
+</div>
+</div>
