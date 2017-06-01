@@ -9,6 +9,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'redis'
 gem 'devise'
 gem 'country_select', '~> 3.0'
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
 
 
 gem 'sass-rails'

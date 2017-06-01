@@ -2,7 +2,11 @@
   <div class="media-body">
     <div class="media-section">
       <h2>Pictures</h2>
-
+      <% if @flat.picture.url %>
+        <%= image_tag @flat.picture.url(:standard) %>
+      <% else %>
+        no picture
+      <% end %>
     </div>
     <div class="media-section">
       <h2>Description</h2>

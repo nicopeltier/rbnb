@@ -11,5 +11,6 @@ class Flat < ApplicationRecord
   validates :street, presence: true
   validates :zipcode, presence: true
 
+  mount_uploader :picture, PictureUploader
 
 end

@@ -54,11 +54,12 @@ class FlatsController < ApplicationController
     redirect_to flat_path(@flat)
   end
 
+
   private
 
   def flat_params
     params.require(:flat).permit(:short_description, :description, :room_count,
-      :property_type, :price, :country, :city, :street, :zipcode)
+      :property_type, :price, :country, :city, :street, :zipcode, :picture, :picture_cache)
   end
 
 end
