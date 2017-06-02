@@ -1,14 +1,13 @@
 <div class="container margined">
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
-<br>
-<br>
-  <h4 class="text-center">Leave your review here:</h4>
-<%= simple_form_for [@flat, @review] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :content %>
-  <%= f.submit "add a review", class: "btn-medium" %>
-<% end %>
-</div>
-</div>
+        <br>
+        <h4 class="text-center">Leave your review here:</h4>
+        <%= simple_form_for [@flat, @review] do |f| %>
+          <%= f.input :rating %>
+          <%= f.input :content %>
+          <%= f.submit "add a review", class: "btn-medium" %>
+        <% end %>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,6 @@
+<%= simple_form_for([flat, review], remote: true, url: flat_reviews_path(flat), method: :post) do |f| %>
+    <%= f.input :rating %>
+    <%= f.input :content %>
+    <%= f.submit "add a review", class: "btn-medium" %>
+<% end %>
+
