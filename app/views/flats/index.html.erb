@@ -1,5 +1,37 @@
 
+<div class="container">
+  <div class="row">
+  <div class="col-sm-7">
 <% @flats.each do |f| %>
  <%= render 'flat', f:f %>
+<% end %>
+
+
+  </div>
+  <div class="col-sm-5">
+<div id="map" style="width: 490px; height: 600px;"></div>
+
+</div>
+</div>
+</div>
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
 <% end %>
 

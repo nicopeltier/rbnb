@@ -13,4 +13,12 @@ class Flat < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
+  geocoded_by :full_street_address
+  after_validation :geocode
+
+  def full_street_address
+    [street, city, country].compact.join(', ')
+  end
+
 end
+

@@ -10,7 +10,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   version :big do
-    cloudinary_transformation width: 650, height: 270, crop: :thumb, :radius=>"5:5:0:0"
+    cloudinary_transformation width: 612, height: 270, crop: :thumb, :radius=>"5:5:0:0"
   end
 
   version :show do
