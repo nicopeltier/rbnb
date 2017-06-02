@@ -15,7 +15,10 @@ class FlatsController < ApplicationController
   def show
     @flat = Flat.find(params[:id])
     @booking = Booking.new
-    @reviews = Review.where(params[:flat_id]).order(rating: :desc)
+    @reviews = Review.where("flat_id = ?", @flat.id).order(rating: :desc)
+    @review = Review.new
+
+
   end
 
   def new
