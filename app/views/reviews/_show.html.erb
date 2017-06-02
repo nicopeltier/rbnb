@@ -1,0 +1,14 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+        <% review.rating.times do  %>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+        <% end %>
+        by
+        <%= link_to User.find(review.user_id).first_name, user_path(review.user_id) %>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <%= review.content %>
+  </div>
+</div>
