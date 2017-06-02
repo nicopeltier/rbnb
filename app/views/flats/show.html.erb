@@ -55,6 +55,12 @@
         <%= link_to "add a review", new_flat_review_path(@flat), class: "btn btn-medium" %>
         </p>
 
+<!--           <h4 class="text-center">Leave your review here:</h4>
+          <%= simple_form_for [@flat, @review] do |f| %>
+              <%= f.input :rating %>
+              <%= f.input :content %>
+              <%= f.submit "add a review", class: "btn-medium" %>
+          <% end %> -->
         <% @reviews.each do |review| %>
            <div class="panel panel-info">
               <div class="panel-heading">
