@@ -1,11 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6">
-        <h3 class="media-heading h2"><%= @flat.short_description %></h3>
-        <br>
-        <dl class="dl-horizontal">
-              <dt>Place</dt>
-              <dd><%= @flat.description %></dd>
+     <div class="col-sm-offset-1 col-sm-5">
+        <div class="classWithPad">
+          <h3 class="media-heading h2"><%= @flat.short_description %></h3>
+          <br>
+          <dl class="dl-horizontal">
               <dt>Nbr of rooms</dt>
               <dd><%= @flat.room_count %></dd>
               <dt>Type</dt>
@@ -20,59 +19,59 @@
               <dd><%= @flat.zipcode %></dd>
               <dt>Country</dt>
               <dd><%= @flat.country %></dd>
-
-    </div>
-
-    <div class="col-xs-12 col-sm-6">
-      <div class="media-right ">
-
+          </dl>
+          <%= @flat.description %>
+        </div>
+      </div>
+    <div class="col-sm-5">
+      <div class="classWithPad">
           <% if @flat.picture.url %>
           <%= image_tag @flat.picture.url(:show), :class => "img-rounded" %>
           <% else %>
           no picture
           <% end %>
-    <br>
+          <br>
       </div>
-      <% if @flat.user != current_user %>
-      <%= simple_form_for [@flat, @booking] do |b| %>
-      <%= b.input :start_date %>
-      <%= b.input :end_date %>
-      <%= b.submit class: "btn-medium" %>
-      <% end %>
-      <% end %>
+        <div class="classWithPad">
+        <% if @flat.user != current_user %>
+          <%= simple_form_for [@flat, @booking] do |b| %>
+          <%= b.input :start_date %>
+          <%= b.input :end_date %>
+          <%= b.submit class: "btn btn-medium" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="row">
-     <div class="col-xs-12 col-sm-6" >
-        <div class="align-left">
-          <Strong>Reviews</Strong>
 
-          <%= link_to "add a review", new_flat_review_path(@flat), class: "btn btn-medium" %>
-        </div>
-      </div>
-  </div>
 </div>
 
   <div class="row">
-      <% @reviews.each do |review| %>
-         <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <% review.rating.times do  %>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-                <% end %>
-                by
-                <%= link_to User.find(review.user_id).first_name, user_path(review.user_id) %>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <%= review.content %>
-            </div>
-        </div>
-      <% end %>
+    <div class="col-sm-offset-1 col-sm-10">
+
+      <p>
+        <h3>Reviews</h3>
+        <%= link_to "add a review", new_flat_review_path(@flat), class: "btn btn-medium" %>
+        </p>
+
+        <% @reviews.each do |review| %>
+           <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <% review.rating.times do  %>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                  <% end %>
+                  by
+                  <%= link_to User.find(review.user_id).first_name, user_path(review.user_id) %>
+                </h3>
+              </div>
+              <div class="panel-body">
+                <%= review.content %>
+              </div>
+          </div>
+        <% end %>
+    </div>
   </div>
 </div>
 
