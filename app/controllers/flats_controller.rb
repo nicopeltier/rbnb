@@ -1,6 +1,10 @@
 class FlatsController < ApplicationController
   def index
-    @flats = Flat.all
+    @flats = Flat.where.not(latitude: nil, longitude: nil)
+    @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
   end
 
   def user_index
@@ -15,8 +19,16 @@ class FlatsController < ApplicationController
   def show
     @flat = Flat.find(params[:id])
     @booking = Booking.new
+
+    @reviews = Review.where(params[:flat_id]).order(rating: :desc)
+
+    @hash = Gmaps4rails.build_markers(@flat) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
     @reviews = Review.where("flat_id = ?", @flat.id).order(rating: :desc)
     @review = Review.new
+
 
 
   end

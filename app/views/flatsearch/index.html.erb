@@ -1,20 +1,46 @@
- <br>
 
- <% @flats.each do |flat| %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-7">
+      <% @flats.each do |flat| %>
 
- <div class="card">
-   <div>
-    <% if flat.picture.url %>
-      <%= image_tag flat.picture.url(:big) %>
-    <% else %>
-      no picture
-    <% end %>
-  </div>
+        <div class="card">
+          <div>
+            <% if flat.picture.url %>
+              <%= image_tag flat.picture.url(:big) %>
+            <% else %>
+              no picture
+            <% end %>
+          </div>
 
-  <div>
-    <h4><%= link_to flat.short_description, flat_path(flat) %></h4>
-    <p>Price per night : <%= flat.price %></p>
+          <div>
+            <h4>$:<%= flat.price %> | <%= link_to flat.short_description, flat_path(flat) %></h4>
+          </div>
+        </div>
+      <% end %>
+    </div>
+     <div class="col-sm-5">
+<div id="map" style="width: 490px; height: 600px;"></div>
+
+</div>
   </div>
 </div>
-<% end %>
 
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
