@@ -1,14 +1,1 @@
-<%= simple_form_for @flat do |f| %>
-  <%= f.input :short_description %>
-  <%= f.input :description %>
-  <%= f.input :room_count %>
-  <%= f.input :property_type, collection: ["House", "Flat", "Studio"], prompt: "Select a property type" %>
-  <%= f.input :price %>
-  <%= f.input :country, prompt: "Select a country" %>
-  <%= f.input :city %>
-  <%= f.input :street %>
-  <%= f.input :zipcode %>
-  <%= f.input :picture %>
-  <%= f.input :picture_cache, as: :hidden %>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>
