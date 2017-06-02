@@ -32,7 +32,7 @@
           <% end %>
           <br>
       </div>
-        <div class="classWithPad">
+      <div class="classWithPad">
         <% if @flat.user != current_user %>
           <%= simple_form_for [@flat, @booking] do |b| %>
           <%= b.input :start_date %>
@@ -43,43 +43,21 @@
       </div>
     </div>
   </div>
-
-
-</div>
-
   <div class="row">
     <div class="col-sm-offset-1 col-sm-10">
-
       <p>
         <h3>Reviews</h3>
-        <%= link_to "add a review", new_flat_review_path(@flat), class: "btn btn-medium" %>
-        </p>
-
-<!--           <h4 class="text-center">Leave your review here:</h4>
-          <%= simple_form_for [@flat, @review] do |f| %>
-              <%= f.input :rating %>
-              <%= f.input :content %>
-              <%= f.submit "add a review", class: "btn-medium" %>
-          <% end %> -->
+      </p>
+     <div class="classWithPad">
+       <%= render 'reviews/form', flat: @flat, review: @review %>
+      </div>
+        <div id="reviews">
         <% @reviews.each do |review| %>
-           <div class="panel panel-info">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                  <% review.rating.times do  %>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <% end %>
-                  by
-                  <%= link_to User.find(review.user_id).first_name, user_path(review.user_id) %>
-                </h3>
-              </div>
-              <div class="panel-body">
-                <%= review.content %>
-              </div>
-          </div>
+          <%= render 'reviews/show', flat: @flat, review: review %>
         <% end %>
+      </div>
     </div>
   </div>
 </div>
-
 
 
