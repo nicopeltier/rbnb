@@ -9,24 +9,24 @@
 }
 
 .card a {
-  color: #b2b2b2;
+  color: #484848;
   text-decoration: none;
   &:hover {
-        color: #d4d4d4;
+        color: #6a6a6a;
     }
 }
 .card-small a {
-  color: #b2b2b2;
+  color: #484848;
   text-decoration: none;
   &:hover {
-        color: #d4d4d4;
+        color: #6a6a6a;
     }
 }
 .card-show a {
-  color: #b2b2b2;
+  color: #484848;
   text-decoration: none;
   &:hover {
-        color: #d4d4d4;
+        color: #6a6a6a;
     }
 }
 
@@ -58,9 +58,9 @@
   bottom: 49.8px;
 }
 
-.card-small h3 {
+.card-small h4 {
   position: absolute;
-  top: 180px;
+  top: 200px;
   left: 10px;
 }
 
