@@ -9,3 +9,5 @@ class Booking < ApplicationRecord
   end
 
 end
+
+

@@ -65,6 +65,7 @@ Rails.application.configure do
   config.action_mailer.postmark_settings   = { api_key: ENV['1d737fd7-9f27-4843-ad60-fdc7799cdee6'] }
   config.action_mailer.default_url_options = { host: "nicopeltier-rbnb.herokuapp.com" }
 
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
