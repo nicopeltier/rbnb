@@ -9,6 +9,9 @@ def index
   end
 end
 
+
+
+
 def confirm_status
   @booking = Booking.find(params[:booking_id])
   @booking.update(status: "Confimred")
